@@ -19,6 +19,8 @@ node index.js
 
 ## Uso en Postman
 
+## ARTITS
+
 ### GET - ALL ARTITS
 
 Obtiene todos los artista de la base de datos 
@@ -60,5 +62,53 @@ Hay que insertar un JSON para esta petición.
   "contact": "Contacto del nuevo artista",
   "service_id": 1
 }
+
+```
+## CONTACT
+
+
+### GET - ALL CONTACT
+
+Obtiene todos los contactos de la base de datos 
+
+```sh
+http://localhost:3000/api/v1/contacts
+```
+
+### GET - CONTACT BY ID 
+
+Obtiene el contacto por id
+
+```sh
+http://localhost:3000/api/v1/contacts/1
+```
+
+### DELETE - CONTACT
+
+Elimina un contacto insertando el id del contacto
+
+```sh
+http://localhost:3000/api/v1/contacts/2
+```
+
+### POST - CONTACT
+
+Crea un nuevo contacto 
+
+```sh
+http://localhost:3000/api/v1/contacts
+```
+
+Hay que insertar un JSON para esta petición.
+
+```json
+    {
+        "id_contact": 8,
+        "youtube": "https://www.youtube.com/",
+        "instagram": "https://www.instagram.com/",
+        "phone": "555-123-4567",
+        "email": "ana.garcia@correo.com",
+        "artist_id": 1
+    }
 
 ```

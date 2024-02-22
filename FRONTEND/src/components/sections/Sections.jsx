@@ -1,6 +1,6 @@
 import React from 'react'
 import './Sections.css' 
-import concert from "../../img/concertblue.png"
+
 const Sections = () => {
   return (
    

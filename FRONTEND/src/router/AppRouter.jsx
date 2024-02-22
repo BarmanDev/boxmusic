@@ -5,10 +5,13 @@ import HomePage from '../pages/homePage/HomePage'
 
 
 
+
 import React from 'react'
+import { DataProvider } from '../context/DataContext'
 
 const AppRouter = () => {
   return (
+    <DataProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -16,6 +19,7 @@ const AppRouter = () => {
         <Route path="/form" element={<FormPage />} />
       </Routes>
     </BrowserRouter>
+    </DataProvider>
   );
   
 }

@@ -3,17 +3,17 @@ import { createContext, useContext, useState, useEffect } from "react";
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const [Artist, setArtist] = useState([]);
+  const [artists, setArtists] = useState([]);
   const [needsReload, setNeedsReload] = useState(true);
-  const URL_Delete = "http://localhost:3000/Artist";
-  const URL = "http://localhost:3000/Artist";
+  const URL_Delete = "http://localhost:3000/api/v1/artists";
+  const URL = "http://localhost:3000/api/v1/artists";
 
   const fetchData = async (URL) => {
     try {
       const response = await fetch(URL);
       if (response.ok) {
         const data = await response.json();
-        setArtist(data);
+        setArtists(data);
         setNeedsReload(false);
       } else {
         console.error("Error al obtener datos");
@@ -22,7 +22,7 @@ export const DataProvider = ({ children }) => {
       console.error("Error de red", error);
     }
   };
-  const getArtist = async (Artist, URL) => {
+  const getartists = async (artists, URL) => {
     try {
       const response = await fetch(`${URL}`);
       if (response.ok) {
@@ -36,12 +36,12 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  const postArtist = async (newArtist, URL, idArtist) => {
+  const postartists = async (newArtists, URL, id_artist) => {
     try {
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newArtist),
+        body: JSON.stringify(newArtists),
       };
 
       const response = await fetch(URL, options);
@@ -58,7 +58,7 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  const updateArtist = (id, newData) => {
+  const updateArtists = (id_artist, newData) => {
     fetch(`${URL}/${id}`, {
       method: "PUT",
       headers: {
@@ -76,8 +76,8 @@ export const DataProvider = ({ children }) => {
   };
   
 
-  const DeleteArtist = (id) => {
-    fetch(`${URL_Delete}/${id}`, {
+  const DeleteArtists = (id_artists) => {
+    fetch(`${URL_Delete}/${id_artists}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -91,17 +91,19 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     if (needsReload) {
-      fetchData("http://localhost:9000/docs");
+      fetchData("http://localhost:3000/artists");
     }
   }, [needsReload]);
 
   const value = {
-    Artist,
+    artists,
     needsReload,
+    getartists,
     fetchData,
-    postArtist,
-    DeleteArtist,
-    updateArtist,
+    postartists,
+    DeleteArtists,
+    updateArtists,
+    searchArtists,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

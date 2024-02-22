@@ -15,8 +15,7 @@ export default function Slider() {
 
   return (
     <div className="App">
-      <h3>Contrata tu artista y trae su musica en vivo</h3>
-      <p>Aqui podras contratar artista,</p>
+      
       <Carousel showDots={true} responsive={responsive}>
         {product}
       </Carousel>

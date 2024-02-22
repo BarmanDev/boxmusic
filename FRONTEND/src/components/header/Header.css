@@ -1,5 +1,5 @@
 .header{
-    width: 100vw;
+    width: 100%;
     height: 8rem;
     background-color: var(--darkColor);
     display: flex;
@@ -19,7 +19,7 @@
     border-radius: 1rem;
     display: flex;
     align-items: center;
-    margin-right: 10rem;
+    margin-right: 0rem;
     gap: 1rem;
     
 }

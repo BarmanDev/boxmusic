@@ -1,113 +1,161 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import "./FormArtist.css";
 
-const FormArtist = () => {
+const ArtistForm = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    urlFoto: "",
+    nombre: "",
+    generoMusical: "",
+    bio: "",
+    telefono: "",
     email: "",
-    address: "",
-    message: "",
+    instagram: "",
+    youtube: "",
+    mp3s: [],
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Send the form data to your PHP file
-    fetch("http://localhost:3000/action.php", {
-      method: "POST",
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        // Display the form data
-        alert(
-          `Form submitted successfully!\n\n${JSON.stringify(formData, null, 2)}`
-        );
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("An error occurred while submitting the form.");
-      });
+    // Aquí puedes realizar acciones con los datos del formulario, como enviarlos al servidor
+    console.log(formData);
   };
 
   return (
-    <div className="container w-50 m-auto">
-      <div className="text">
-        <h1 className="text-center">Contacto</h1>
-        <hr className="w-25 m-auto bg-dark" />
-      </div>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <div className="user my-4">
-          <label htmlFor="username">Nombre: </label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            className="form-control"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
+    <main className="mainForm">
+    <div className="form">
+      <h1 className="form__title">Formulario de Artista</h1>
+      <form className="formContainer" onSubmit={handleSubmit}>
+      <h1 className="for__title">Formulario de Artista</h1>
+        <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="urlFoto">URL de la Foto:</label>
+        <input
+        className="formContainer__input"
+          type="url"
+         
+          id="urlFoto"
+          name="urlFoto"
+          value={formData.urlFoto}
+          onChange={handleChange}
+          required
+        />
         </div>
-        <div className="gender my-4">
-          <label htmlFor="gender">Genero: </label>
-          <input
-            type="text"
-            name="gender"
-            id="gender"
-            className="form-control"
-            value={formData.gender}
-            onChange={handleChange}
-            required
-          />
+        <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="nombre">Nombre:</label>
+        <input
+        className="formContainer__input"
+          type="text"
+          
+          id="nombre"
+          name="nombre"
+          value={formData.nombre}
+          onChange={handleChange}
+          required
+        />
         </div>
-        <div className="email">
-          <label htmlFor="email">Correo: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="email form-control"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="generoMusical">Género Musical:</label>
+        <input
+        className="formContainer__input"
+          type="text"
+          
+          id="generoMusical"
+          name="generoMusical"
+          value={formData.generoMusical}
+          onChange={handleChange}
+          required
+        />
         </div>
-        <div className="address my-4">
-          <label htmlFor="address">Biografia: </label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            className="form-control"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
+        <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="bio">Biografía:</label>
+        <textarea
+        className="formContainer__input"
+          id="bio"
+          name="bio"
+          value={formData.bio}
+          onChange={handleChange}
+          rows="4"
+          required
+        />
         </div>
-        <div className="address my-4">
-          <label htmlFor="address">Canciones: </label>
-          <input
-            type="file"
-            name="canciones"
-            id="canciones"
-            className="form-control"
-            accept=".mp4"
-            onChange={handleChange}
-            required
-          />
+       <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="telefono">Teléfono:</label>
+        <input
+        className="formContainer__input"
+          type="tel"
+          id="telefono"
+          name="telefono"
+          value={formData.telefono}
+          onChange={handleChange}
+          required
+        />
         </div>
-        <button type="submit" className="btn btn-success float-end">
-          Enviar
-        </button>
+        <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="email">Correo Electrónico:</label>
+        <input
+        className="formContainer__input"
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        </div>
+         <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="instagram">Instagram:</label>
+        <input
+        className="formContainer__input"
+          type="text"
+          id="instagram"
+          name="instagram"
+          value={formData.instagram}
+          onChange={handleChange}
+        />
+        </div>
+       <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="youtube">YouTube:</label>
+        <input
+        className="formContainer__input"
+          type="text"
+          id="youtube"
+          name="youtube"
+          value={formData.youtube}
+          onChange={handleChange}
+        />
+        </div>
+        <div className="formContainer__item">
+        <label className="formContainer__label" htmlFor="mp3s">Añadir MP3s:</label>
+        <input className="formContainer__input"
+          type="file"
+          id="mp3s"
+          name="mp3s"
+          accept=".mp3"
+          onChange={handleFileChange}
+          multiple
+        />
+        </div>
+
+        <input className="formContainer__button" type="submit" value="Enviar" />
       </form>
     </div>
+    </main>
   );
 };
 
-export default FormArtist;
+export default ArtistForm;

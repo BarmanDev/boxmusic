@@ -4,6 +4,6 @@ describe("App", () =>{
     });
 
     it("Should display the title", () =>{
-        cy.get("h1").contains("box music");
+        cy.get("h2").contains("Músicos Online");
     })
 });

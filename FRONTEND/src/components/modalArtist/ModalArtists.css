@@ -1,0 +1,58 @@
+.modalContainer{
+    width: 80rem;
+    height: 60rem;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    border-radius: 10%;
+}
+.modalCard{
+    
+width: 60rem;
+height: 50rem;
+background-color: var(--darkColor);
+border: 3px solid black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items:;
+border-radius: 10%;
+margin-top: 5rem;
+color: var(--white);
+}
+.modalCard__artist{
+    width: 55rem;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: var(--greyColor);
+    margin: 0 1rem;
+    border-radius: 10%;
+    border: .5rem solid var(--darksoftColor);
+}
+.modalCard__img{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    border: 5px solid black;
+    margin-top: 2rem;
+
+}
+.modalCard__songs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 3rem;
+}
+.modalCard__songs-title{
+    font-size: 1.5rem;
+    color: var(white);
+}
+.modalCard__songs-button{
+    background-color: var(--mainColor);
+    height: 3rem;
+    width: 5rem;
+    cursor: pointer;
+}

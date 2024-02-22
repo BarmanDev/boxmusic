@@ -1,5 +1,7 @@
 import Header from './components/header/Header'
 import Sections from './components/sections/Sections'
+import Footer from './components/footer/Footer'
+import ModalArtists from './components/modalArtist/ModalArtists'
 
 function App() {
   
@@ -8,6 +10,8 @@ function App() {
     <>
      <Header/>
      <Sections/>
+     <ModalArtists/>
+     <Footer/>
     </>
   )
 }

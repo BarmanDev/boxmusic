@@ -6,10 +6,8 @@
    align-items: center;
    justify-content: space-between;
 }
-.header__containerLogo{
-    display: flex;
-    align-items: center;
-}
+
+
 .header__containerLogo-img{
     width: 12rem;
     height: 10rem;

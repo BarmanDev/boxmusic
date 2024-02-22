@@ -1,43 +1,25 @@
-import React from 'react';
-import estilos from './Slider.module.css';
+import "./Slider.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import Product from "./Product";
+import { productData, responsive } from "./data";
 
-function Slider({ imagenes }) {
-	// Variables y Estados
-	const [imagenActual, setImagenActual] = React.useState(0);
-	const cantidad = imagenes?.length;
+export default function Slider() {
+  const product = productData.map((item) => (
+    <Product
+      name={item.name}
+      url={item.imageurl}
+      description={item.description}
+    />
+  ));
 
-	// Return prematuro para evitar errores
-	if (!Array.isArray(imagenes) || cantidad === 0) return;
-
-	const siguienteImagen = () => {
-		setImagenActual(imagenActual === cantidad - 1 ? 0 : imagenActual + 1);
-	};
-
-	const anteriorImagen = () => {
-		setImagenActual(imagenActual === 0 ? cantidad - 1 : imagenActual - 1);
-	};
-
-	return (
-		<div className={estilos.container}>
-			<button onClick={anteriorImagen}>←</button>
-			{imagenes.map((imagen, index) => {
-				return (
-					<div
-						className={
-							imagenActual === index
-								? `${estilos.slide} ${estilos.active}`
-								: estilos.slide
-						}>
-						{imagenActual === index && (
-							<img key={index} src={imagen} alt="imagen" />
-           
-						)}
-					</div>
-				);
-			})}
-			<button onClick={siguienteImagen}>→</button>
-		</div>
-	);
+  return (
+    <div className="App">
+      <h3>Contrata tu artista y trae su musica en vivo</h3>
+      <p>Aqui podras contratar artista,</p>
+      <Carousel showDots={true} responsive={responsive}>
+        {product}
+      </Carousel>
+    </div>
+  );
 }
-
-export default Slider;

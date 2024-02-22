@@ -1,0 +1,12 @@
+:root{
+  --mainColor:#60d4ea;
+  --secondaryColor:#9ae5f3;
+  --darkColor:#020202;
+  --darksoftColor: #19191a;
+  --greyColor:#373739;
+  --white: #fff;
+
+}
+html{
+  font-size: 62.5%;
+}

@@ -1,17 +1,15 @@
-import Header from './components/header/Header'
-import Sections from './components/sections/Sections'
-import Footer from './components/footer/Footer'
-import ModalArtists from './components/modalArtist/ModalArtists'
+
+import './App.css'
+import AppRouter from "../src/router/AppRouter";
+
+
 
 function App() {
   
 
   return (
     <>
-     <Header/>
-     <Sections/>
-     <ModalArtists/>
-     <Footer/>
+    <AppRouter/>
     </>
   )
 }

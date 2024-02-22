@@ -47,19 +47,26 @@ exports.updateArtist = async (req, res) => {
   }
 };
 
+// Delete da fallos voy a crear los demas controller por si se debe a ese el problema
 exports.deleteArtist = async (req, res) => {
-    const { id } = req.params;
-    try {
-      await db.promise().query('DELETE FROM songs WHERE artist_id = ?', [id]);
-  
-      await db.promise().query('DELETE FROM favorites WHERE id_artist = ?', [id]);
-  
-      await db.promise().query('DELETE FROM artist WHERE id_artist = ?', [id]);
-      
-      res.status(200).json({ message: 'Artista eliminado exitosamente' });
-    } catch (error) {
-      console.error('Error al eliminar el artista: ' + error.message);
-      res.status(500).json({ error: 'Error al eliminar el artista de la base de datos' });
-    }
-  };
+  const { id } = req.params;
+  try {
+    await db.promise().query('DELETE FROM songs WHERE artist_id = ?', [id]);
+
+    await db.promise().query('DELETE FROM contact WHERE artist_id = ?', [id]);
+
+    await db.promise().query('DELETE FROM favorites WHERE id_artist = ?', [id]);
+
+    await db.promise().query('DELETE FROM artist WHERE id_artist = ?', [id]);
+
+    res.status(200).json({ message: 'Artista y registros relacionados eliminados exitosamente' });
+  } catch (error) {
+    console.error('Error al eliminar el artista y registros relacionados: ' + error.message);
+    res.status(500).json({ error: 'Error al eliminar el artista y registros relacionados de la base de datos' });
+  }
+};
+
+
+
+
   

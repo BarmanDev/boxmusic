@@ -6,31 +6,34 @@
    align-items: center;
    justify-content: space-between;
 }
-.header__containerLogo{
-    display: flex;
-    align-items: center;
-}
-.header__containerLogo-img{
+
+
+.header__img{
     width: 12rem;
     height: 10rem;
     margin-left: 2rem;
 }
-.header__containerLogo-title{
-    color: var(--mainColor);
+.header__button{
+    background-color: var(--mainColor);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 10rem;
+    gap: 1rem;
+    
+}
+.header__button-link{
+    color: var(--darkColor); 
+    font-size: 1.5rem; 
     text-transform: uppercase;
-    font-size: 5rem;
-    margin-left: 3rem;
-}
-.header__nav{
-display: flex;
-gap: 3rem;
-margin-right: 15rem;
-}
-.header__nav a{
-    color: var(--white);
     text-decoration: none;
-    font-size: 1.5rem;
+
 }
-.header__nav a:hover{
-    color: var(--mainColor);
+
+   
+
+
+.header__button:hover{
+    background-color: var(--secondaryColor);
 }

@@ -2,12 +2,13 @@
 
 
 import React from 'react'
+import FormArtist from '../../components/formArtist/FormArtists'
 
 const FormPage = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <FormArtist/>
+    </>
   )
 }
 

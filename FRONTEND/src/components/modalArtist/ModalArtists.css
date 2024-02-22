@@ -1,58 +1,133 @@
 .modalContainer{
     width: 80rem;
     height: 60rem;
-    background-color: azure;
+    background-color:var(--darksoftColor);
     display: flex;
     justify-content: center;
     border-radius: 10%;
+}
+.modalContainer__button{
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    width: 2rem;
+    height: 2rm;
+    font-size: 5rem;
+    margin-bottom: 50rem;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+.modalContainer__button:hover{
+    scale: 1.1;
 }
 .modalCard{
     
 width: 60rem;
-height: 50rem;
+height: 55rem;
 background-color: var(--darkColor);
-border: 3px solid black;
+border: 1px solid var(--mainColor);
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items:;
-border-radius: 10%;
-margin-top: 5rem;
+align-items: center;
+border-radius: 2%;
+margin-top: 2rem;
 color: var(--white);
+
+
 }
 .modalCard__artist{
-    width: 55rem;
+    width: 58rem;
     height: 25rem;
     display: flex;
-    justify-content: center;
-    font-size: 2rem;
-    background-color: var(--greyColor);
-    margin: 0 1rem;
-    border-radius: 10%;
-    border: .5rem solid var(--darksoftColor);
+    justify-content: space-around;
+    
+    font-size: 2rem;    
+   
+    
+    
 }
 .modalCard__img{
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
-    border: 5px solid black;
+    border: 5px solid var(--mainColor);
     margin-top: 2rem;
 
 }
+.modalCard__img:hover{
+    scale: 2;
+    transition: all 1s ease-in-out;
+    filter: hue-rotate(90deg);
+}
+.modalCard__artist-name{
+    font-size: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: var(--mainColor);
+}
+.modelCard__dates{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.modelCard__favorites{
+    display: flex;    
+    align-items: center;
+    gap: 1rem;
+}
 .modalCard__songs{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;    
     align-items: center;
     color: white;
-    gap: 3rem;
+    border: .1rem solid var(--mainColor);
+    width: 55rem;
+   gap: 1rem;
+   margin-top: 1.5rem;
+   border-radius: 1rem;
+   
 }
 .modalCard__songs-title{
     font-size: 1.5rem;
     color: var(white);
+    margin-left: 2rem;
 }
 .modalCard__songs-button{
     background-color: var(--mainColor);
     height: 3rem;
     width: 5rem;
     cursor: pointer;
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+.modalCard__songs-button:hover{
+    background-color: var(--secondaryColor);
+}
+
+.modelCard__bio{
+    color: var(--white);
+    font-size: 1.5rem;
+    width: 55rem;
+    text-align: center;
+    border: .1rem solid var(--mainColor);
+    border-radius: 1rem;
+   
+}
+.modelCard__contact{
+    width: 55rem;
+    border: .1rem solid var(--mainColor);
+    text-align: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    border-radius: 1rem;
+    
+
+}
+.modelCard__contact-icon:hover{
+    scale:1.2;
 }

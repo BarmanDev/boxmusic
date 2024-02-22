@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const testController = require('./src/controllers/testController');
 const artistRoutes = require('./src/routes/artistRouter'); 
-
+const songsRouter = require('./src/routes/songsRouter')
 const app = express();
 
 const corsOptions = {
@@ -16,7 +16,7 @@ app.use(cors(corsOptions));
 
 app.get('/test', testController);
 app.use('/api/v1', artistRoutes);
-
+app.use('/api/v1', songsRouter);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);

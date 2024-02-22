@@ -1,6 +1,9 @@
-import Header from './components/header/Header'
-import Sections from './components/sections/Sections'
-import Slider from './components/Slider';
+
+import './App.css'
+import AppRouter from "../src/router/AppRouter";
+
+
+
 function App() {
   const mockImagenes = [
 		'https://picsum.photos/id/1020/400',
@@ -10,9 +13,7 @@ function App() {
 
   return (
     <>
-     <Header/>
-     <Sections/>
-     <Slider imagenes={mockImagenes} />;
+    <AppRouter/>
     </>
   )
 }
